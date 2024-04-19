@@ -24,6 +24,9 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
 
+    implementation("io.ktor:ktor-server-auth:$ktorVersion")
+    implementation("io.ktor:ktor-server-auth-jwt:$ktorVersion")
+
     implementation("io.insert-koin:koin-core:$koinVersion")
     implementation("io.insert-koin:koin-ktor:$koinVersion")
 
@@ -43,5 +46,5 @@ tasks.test {
 
 application {
     // Define the main class for the application.
-    mainClass = "org.twittergram.MainKt"
+    mainClass = "com.twittergram.MainKt"
 }

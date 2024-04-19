@@ -1,6 +1,7 @@
 package com.twittergram.repository
 
 import com.twittergram.model.Post
+import com.twittergram.model.UserSignature
 
 interface PostRepository {
 
@@ -13,7 +14,7 @@ interface PostRepository {
 
     fun getById(id: Long): Post?
 
-    fun create(postText: String): Post
+    fun create(postText: String, author: UserSignature): Post
 
     fun update(id: Long, newPostText: String): Post?
 
