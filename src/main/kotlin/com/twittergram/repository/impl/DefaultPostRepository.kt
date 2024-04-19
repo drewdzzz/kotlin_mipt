@@ -1,6 +1,7 @@
 package com.twittergram.repository.impl
 
 import com.twittergram.model.Post
+import com.twittergram.model.UserSignature
 import com.twittergram.repository.PostRepository
 import java.time.Instant
 import kotlin.random.Random
@@ -22,7 +23,7 @@ class DefaultPostRepository: PostRepository {
         return posts.get(id)
     }
 
-    override fun create(postText: String): Post {
+    override fun create(postText: String, author: UserSignature): Post {
         var id = Random.nextLong()
         /* Make sure that id is positive and unique. */
         while (id <= 0 || posts.contains(id)) {
@@ -32,6 +33,7 @@ class DefaultPostRepository: PostRepository {
             id,
             postText,
             Instant.now().toString(),
+            author,
         )
         posts.put(id, createdPost)
         return createdPost

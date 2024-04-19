@@ -1,5 +1,6 @@
 package com.twittergram
 
+import com.twittergram.api.authApi
 import com.twittergram.api.postApi
 import com.twittergram.postModule
 import io.ktor.serialization.kotlinx.json.*
@@ -13,6 +14,7 @@ import org.koin.ktor.plugin.Koin
 fun main() {
     embeddedServer(Netty, port = 8080) {
         configureServer()
+        authApi()
         postApi()
     }.start(wait = true)
 }
